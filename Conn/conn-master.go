@@ -3,7 +3,8 @@ package connmaster
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"database/sql"
+
+	// "database/sql"
 	"encoding/base64"
 	"fmt"
 	"log"
@@ -11,12 +12,16 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
-func ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
+func ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort string) *sqlx.DB {
 	// Ganti nilai-nilai berikut sesuai dengan informasi koneksi MySQL Anda
 	dbUser := DBUser
 	dbPass, err := decrypt(DBPass)
+	if err != nil {
+		log.Fatal(err)
+	}
 	// dbUsers := fmt.Sprintf("%s/", dbUser)
 	index := strings.Index(dbPass, "/")
 	dbPass = dbPass[index+1:]
@@ -30,7 +35,7 @@ func ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPass, dbHost, dbPort, dbName)
 
 	// Membuka koneksi ke database MySQL
-	db, err := sql.Open("mysql", dataSourceName)
+	db, err := sqlx.Open("mysql", dataSourceName)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -44,7 +49,7 @@ func ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
 
 }
 
-func ConnBilling(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
+func ConnBilling(DBUser, DBPass, DBName, DBHost, DBPort string) *sqlx.DB {
 	// Ganti nilai-nilai berikut sesuai dengan informasi koneksi MySQL Anda
 	dbUser := DBUser
 	dbPass := DBPass
@@ -57,21 +62,21 @@ func ConnBilling(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPass, dbHost, dbPort, dbName)
 
 	// Membuka koneksi ke database MySQL
-	dbbilling, err := sql.Open("mysql", dataSourceName)
+	dbbilling, err := sqlx.Open("mysql", dataSourceName)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbbilling.SetMaxIdleConns(100)
-	dbbilling.SetMaxOpenConns(1000)
-	dbbilling.SetConnMaxIdleTime(5 * time.Minute)
-	dbbilling.SetConnMaxLifetime(5 * time.Minute)
+	// dbbilling.SetMaxIdleConns(100)
+	// dbbilling.SetMaxOpenConns(1000)
+	// dbbilling.SetConnMaxIdleTime(5 * time.Minute)
+	// dbbilling.SetConnMaxLifetime(5 * time.Minute)
 
 	return dbbilling
 
 }
 
-func ConnLoket(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
+func ConnLoket(DBUser, DBPass, DBName, DBHost, DBPort string) *sqlx.DB {
 	// Ganti nilai-nilai berikut sesuai dengan informasi koneksi MySQL Anda
 	dbUser := DBUser
 	dbPass := DBPass
@@ -84,21 +89,21 @@ func ConnLoket(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPass, dbHost, dbPort, dbName)
 
 	// Membuka koneksi ke database MySQL
-	dbloket, err := sql.Open("mysql", dataSourceName)
+	dbloket, err := sqlx.Open("mysql", dataSourceName)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbloket.SetMaxIdleConns(100)
-	dbloket.SetMaxOpenConns(1000)
-	dbloket.SetConnMaxIdleTime(5 * time.Minute)
-	dbloket.SetConnMaxLifetime(5 * time.Minute)
+	// dbloket.SetMaxIdleConns(100)
+	// dbloket.SetMaxOpenConns(1000)
+	// dbloket.SetConnMaxIdleTime(5 * time.Minute)
+	// dbloket.SetConnMaxLifetime(5 * time.Minute)
 
 	return dbloket
 
 }
 
-func ConnAkun(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
+func ConnAkun(DBUser, DBPass, DBName, DBHost, DBPort string) *sqlx.DB {
 	// Ganti nilai-nilai berikut sesuai dengan informasi koneksi MySQL Anda
 	dbUser := DBUser
 	dbPass := DBPass
@@ -111,21 +116,21 @@ func ConnAkun(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPass, dbHost, dbPort, dbName)
 
 	// Membuka koneksi ke database MySQL
-	dbakun, err := sql.Open("mysql", dataSourceName)
+	dbakun, err := sqlx.Open("mysql", dataSourceName)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbakun.SetMaxIdleConns(10)
-	dbakun.SetMaxOpenConns(100)
-	dbakun.SetConnMaxIdleTime(5 * time.Minute)
-	dbakun.SetConnMaxLifetime(5 * time.Minute)
+	// dbakun.SetMaxIdleConns(10)
+	// dbakun.SetMaxOpenConns(100)
+	// dbakun.SetConnMaxIdleTime(5 * time.Minute)
+	// dbakun.SetConnMaxLifetime(5 * time.Minute)
 
 	return dbakun
 
 }
 
-func ConnWr(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
+func ConnWr(DBUser, DBPass, DBName, DBHost, DBPort string) *sqlx.DB {
 	// Ganti nilai-nilai berikut sesuai dengan informasi koneksi MySQL Anda
 	dbUser := DBUser
 	dbPass := DBPass
@@ -138,15 +143,15 @@ func ConnWr(DBUser, DBPass, DBName, DBHost, DBPort string) *sql.DB {
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPass, dbHost, dbPort, dbName)
 
 	// Membuka koneksi ke database MySQL
-	dbwr, err := sql.Open("mysql", dataSourceName)
+	dbwr, err := sqlx.Open("mysql", dataSourceName)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	dbwr.SetMaxIdleConns(10)
-	dbwr.SetMaxOpenConns(100)
-	dbwr.SetConnMaxIdleTime(5 * time.Minute)
-	dbwr.SetConnMaxLifetime(5 * time.Minute)
+	// dbwr.SetMaxIdleConns(10)
+	// dbwr.SetMaxOpenConns(100)
+	// dbwr.SetConnMaxIdleTime(5 * time.Minute)
+	// dbwr.SetConnMaxLifetime(5 * time.Minute)
 
 	return dbwr
 

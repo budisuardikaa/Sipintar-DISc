@@ -10,7 +10,6 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
-	"time"
 
 	//"io/ioutil"
 	"log"
@@ -110,38 +109,23 @@ func main() {
 
 	//START PING BERULANG
 	//for i := 1; i <= 10; i++ {
-	for {
-		// db := connmaster.ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort)
-		db := connmaster.ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort)
-		defer db.Close()
+	// for {
+	// 	db := connmaster.ConnMaster(DBUser, DBPass, DBName, DBHost, DBPort)
+	// 	defer db.Close()
 
-		// Mengecek koneksi ke database
-		err := db.Ping()
-		if err != nil {
-			fmt.Println("Tidak dapat terhubung ke database:", err)
-			// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+	// 	// Mengecek koneksi ke database
+	// 	err := db.Ping()
+	// 	if err != nil {
+	// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+	// 		goto Sleep
+	// 	} else {
 
-			goto Sleep
-		} else {
-			// lastup := context.Background()
+	// 		break
 
-			// s_lastup := "UPDATE sipintar_pdam_config SET lastupdate = NOW() WHERE idpdam = ? "
-			// //_, err := db.ExecContext(lastup, s_lastup, IdPDAM)
-			// _, err := db.ExecContext(lastup, s_lastup, IdPDAM)
-			// if err != nil {
-			// 	fmt.Println("Gagal update lastupdate:", err)
-
-			// 	goto Sleep
-			// }
-
-			//pesan := "Berhasil konek service."
-
-			break
-
-		}
-	Sleep:
-		time.Sleep(5 * time.Second)
-	}
+	// 	}
+	// Sleep:
+	// 	time.Sleep(5 * time.Second)
+	// }
 	// END PING BERULANG
 
 	// CEK PDAM
@@ -215,17 +199,17 @@ func main() {
 
 }
 
-func readJSONArray(jsonString string) ([]Data, error) {
-	var dataList []Data
+// func readJSONArray(jsonString string) ([]Data, error) {
+// 	var dataList []Data
 
-	// Mengonversi string JSON ke dalam slice dari struktur data
-	err := json.Unmarshal([]byte(jsonString), &dataList)
-	if err != nil {
-		return dataList, err
-	}
+// 	// Mengonversi string JSON ke dalam slice dari struktur data
+// 	err := json.Unmarshal([]byte(jsonString), &dataList)
+// 	if err != nil {
+// 		return dataList, err
+// 	}
 
-	return dataList, nil
-}
+// 	return dataList, nil
+// }
 
 func readJSONConf(jsonString string) ([]DataConfig, error) {
 	var dataConf []DataConfig
