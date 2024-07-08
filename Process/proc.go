@@ -3,7 +3,6 @@ package procc
 import (
 	connmaster "SiPriksa/Conn"
 	"context"
-	"database/sql"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -12,6 +11,7 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
 type Data struct {
@@ -295,25 +295,25 @@ func CekVersionBill(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string
 	dbPort := DBPort
 	idPDAM := IdPDAM
 
-	for {
-		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-		defer db.Close()
+	// for {
+	// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+	// 	defer db.Close()
 
-		// Mengecek koneksi ke database
-		err := db.Ping()
-		if err != nil {
-			fmt.Println("Tidak dapat terhubung ke database: ", err)
-			// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+	// 	// Mengecek koneksi ke database
+	// 	err := db.Ping()
+	// 	if err != nil {
+	// 		fmt.Println("Tidak dapat terhubung ke database: ", err)
+	// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
 
-			goto Sleep
-		} else {
+	// 		goto Sleep
+	// 	} else {
 
-			break
+	// 		break
 
-		}
-	Sleep:
-		time.Sleep(5 * time.Second)
-	}
+	// 	}
+	// Sleep:
+	// 	time.Sleep(5 * time.Second)
+	// }
 
 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
 	defer db.Close()
@@ -435,25 +435,25 @@ func CekVersionLoket(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan strin
 	dbPort := DBPort
 	idPDAM := IdPDAM
 
-	for {
-		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-		defer db.Close()
+	// for {
+	// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+	// 	defer db.Close()
 
-		// Mengecek koneksi ke database
-		err := db.Ping()
-		if err != nil {
-			fmt.Println("Tidak dapat terhubung ke database:", err)
-			// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-			// telebot.TeleBot(pesan)
-			goto Sleep
-		} else {
+	// 	// Mengecek koneksi ke database
+	// 	err := db.Ping()
+	// 	if err != nil {
+	// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+	// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+	// 		// telebot.TeleBot(pesan)
+	// 		goto Sleep
+	// 	} else {
 
-			break
+	// 		break
 
-		}
-	Sleep:
-		time.Sleep(5 * time.Second)
-	}
+	// 	}
+	// Sleep:
+	// 	time.Sleep(5 * time.Second)
+	// }
 
 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
 	defer db.Close()
@@ -573,25 +573,25 @@ func CekVersionBshpd(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan strin
 	dbPort := DBPort
 	idPDAM := IdPDAM
 
-	for {
-		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-		defer db.Close()
+	// for {
+	// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+	// 	defer db.Close()
 
-		// Mengecek koneksi ke database
-		err := db.Ping()
-		if err != nil {
-			fmt.Println("Tidak dapat terhubung ke database:", err)
-			// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-			// telebot.TeleBot(pesan)
-			goto Sleep
-		} else {
+	// 	// Mengecek koneksi ke database
+	// 	err := db.Ping()
+	// 	if err != nil {
+	// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+	// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+	// 		// telebot.TeleBot(pesan)
+	// 		goto Sleep
+	// 	} else {
 
-			break
+	// 		break
 
-		}
-	Sleep:
-		time.Sleep(5 * time.Second)
-	}
+	// 	}
+	// Sleep:
+	// 	time.Sleep(5 * time.Second)
+	// }
 
 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
 	defer db.Close()
@@ -713,25 +713,25 @@ func CekSelisihPelanggan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan s
 
 	fmt.Println("\n- CEK SELISIH PELANGGAN")
 
-	for {
-		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-		defer db.Close()
+	// for {
+	// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+	// 	defer db.Close()
 
-		// Mengecek koneksi ke database
-		err := db.Ping()
-		if err != nil {
-			fmt.Println("Tidak dapat terhubung ke database:", err)
-			// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-			// telebot.TeleBot(pesan)
-			goto Sleep
-		} else {
+	// 	// Mengecek koneksi ke database
+	// 	err := db.Ping()
+	// 	if err != nil {
+	// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+	// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+	// 		// telebot.TeleBot(pesan)
+	// 		goto Sleep
+	// 	} else {
 
-			break
+	// 		break
 
-		}
-	Sleep:
-		time.Sleep(5 * time.Second)
-	}
+	// 	}
+	// Sleep:
+	// 	time.Sleep(5 * time.Second)
+	// }
 
 	// START CEK PELANGGAN BILLING
 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
@@ -783,25 +783,25 @@ func CekSelisihPelanggan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan s
 
 		}
 
-		for {
-			dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
-			defer dbbilling.Close()
+		// for {
+		// 	dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+		// 	defer dbbilling.Close()
 
-			// Mengecek koneksi ke database
-			err := dbbilling.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepB1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbbilling.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepB1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepB1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepB1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		//KONEK KE DB BILLING
 		dbbill := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
@@ -820,25 +820,25 @@ func CekSelisihPelanggan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan s
 		}
 		fmt.Println(" [DONE]")
 
-		for {
-			dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
-			defer dbloket.Close()
+		// for {
+		// 	dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
+		// 	defer dbloket.Close()
 
-			// Mengecek koneksi ke database
-			err := dbloket.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepL1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbloket.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepL1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepL1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepL1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		//KONEK KE DB LOKET
 		dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
@@ -873,23 +873,23 @@ func CekPerubahanPelanggan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan
 	idPDAM := IdPDAM
 	fmt.Println("\n- CEK PERUBAHAN PELANGGAN")
 
-	for {
-		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-		defer db.Close()
+	// for {
+	// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+	// 	defer db.Close()
 
-		// Mengecek koneksi ke database
-		err := db.Ping()
-		if err != nil {
-			log.Fatal("Tidak dapat terhubung ke database:", err)
-			goto Sleep
-		} else {
+	// 	// Mengecek koneksi ke database
+	// 	err := db.Ping()
+	// 	if err != nil {
+	// 		log.Fatal("Tidak dapat terhubung ke database:", err)
+	// 		goto Sleep
+	// 	} else {
 
-			break
+	// 		break
 
-		}
-	Sleep:
-		time.Sleep(5 * time.Second)
-	}
+	// 	}
+	// Sleep:
+	// 	time.Sleep(5 * time.Second)
+	// }
 
 	// START CEK PELANGGAN BILLING
 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
@@ -942,25 +942,25 @@ func CekPerubahanPelanggan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan
 
 		}
 
-		for {
-			dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
-			defer dbloket.Close()
+		// for {
+		// 	dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
+		// 	defer dbloket.Close()
 
-			// Mengecek koneksi ke database
-			err := dbloket.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepL1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbloket.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepL1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepL1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepL1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		//KONEK KE DB LOKET
 		dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
@@ -997,25 +997,25 @@ func CekPerubahanPelanggan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan
 		fmt.Println(" [DONE]")
 		// END AMBIL PELANGGAN BILLING
 
-		for {
-			dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
-			defer dbbilling.Close()
+		// for {
+		// 	dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+		// 	defer dbbilling.Close()
 
-			// Mengecek koneksi ke database
-			err := dbbilling.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepB1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbbilling.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepB1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepB1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepB1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		//  CEK KONEKSI LOKET
 		dbbill := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
@@ -1137,25 +1137,25 @@ func CekLPP(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) string
 
 	for tahun := tahun_lalu; tahun <= tahun_ini; tahun++ {
 		fmt.Println("\n- CEK LPP ", tahun)
-		for {
-			db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-			defer db.Close()
+		// for {
+		// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+		// 	defer db.Close()
 
-			// Mengecek koneksi ke database
-			err := db.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto Sleep
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := db.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto Sleep
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		Sleep:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// Sleep:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		// START CEK PELANGGAN BILLING
 		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
@@ -1223,25 +1223,25 @@ func CekLPP(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) string
 			log.Fatalf("Tidak dapat terhubung ke database: %v", err)
 		}
 
-		for {
-			dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
-			defer dbloket.Close()
+		// for {
+		// 	dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
+		// 	defer dbloket.Close()
 
-			// Mengecek koneksi ke database
-			err := dbloket.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepL1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbloket.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepL1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepL1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepL1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		//  CEK KONEKSI LOKET
 		dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
@@ -1253,25 +1253,25 @@ func CekLPP(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) string
 			log.Fatalf("Tidak dapat terhubung ke database: %v", err)
 		}
 
-		for {
-			dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
-			defer dbbilling.Close()
+		// for {
+		// 	dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+		// 	defer dbbilling.Close()
 
-			// Mengecek koneksi ke database
-			err := dbbilling.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepB1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbbilling.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepB1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepB1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepB1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		fmt.Print("CEK TABEL BAYAR TAHUN BILLING")
 		ctx_cektabel := context.Background()
@@ -2035,25 +2035,25 @@ func CekPembatalan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string)
 
 	for tahun := tahun_lalu; tahun <= tahun_ini; tahun++ {
 		fmt.Println("\n- CEK PEMBATALAN LPP", tahun)
-		for {
-			db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-			defer db.Close()
+		// for {
+		// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+		// 	defer db.Close()
 
-			// Mengecek koneksi ke database
-			err := db.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto Sleep
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := db.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto Sleep
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		Sleep:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// Sleep:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		// START CEK PELANGGAN BILLING
 		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
@@ -2117,25 +2117,25 @@ func CekPembatalan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string)
 			log.Fatalf("Tidak dapat terhubung ke database: %v", err)
 		}
 
-		for {
-			dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
-			defer dbbilling.Close()
+		// for {
+		// 	dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+		// 	defer dbbilling.Close()
 
-			// Mengecek koneksi ke database
-			err := dbbilling.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepB1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbbilling.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepB1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepB1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepB1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		//  CEK KONEKSI LOKET
 		dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
@@ -2458,7 +2458,7 @@ func CekPembatalan(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string)
 
 		fmt.Print("CEK LPP NONAIR BILLING KE NONAIR LOKET")
 		ctx_nonairloket := context.Background()
-		qnonair_loket := fmt.Sprintf("SELECT @id:=@id+1 AS id,urutan AS kode,DATE(waktubayar) AS tglbayar,total,CONCAT('Tagihan dibatalkan oleh Kasir : ',kasir,' pada tanggal : ',waktubatal,' dengan alasan : ',alasanbatal) AS keterangan FROM nonair,(SELECT @id:=0) AS id WHERE urutan IN ('%s') AND flaglunas=0 AND flagbatal=1 AND flaghapus=0 AND (COALESCE(noangsuran,'')='' OR COALESCE(noangsuran,'')='-') AND flagangsur=1 AND jenis NOT IN ('JNS-36','JNS-37') ORDER BY waktubayar,kode ASC", strings.Join(kodeAngNonAirBill, "','"))
+		qnonair_loket := fmt.Sprintf("SELECT @id:=@id+1 AS id,urutan AS kode,DATE(waktubayar) AS tglbayar,total,CONCAT('Tagihan dibatalkan oleh Kasir : ',kasir,' pada tanggal : ',waktubatal,' dengan alasan : ',alasanbatal) AS keterangan FROM nonair,(SELECT @id:=0) AS id WHERE urutan IN ('%s') AND flaglunas=0 AND flagbatal=1 AND flaghapus=0 AND (COALESCE(noangsuran,'')='' OR COALESCE(noangsuran,'')='-') AND flagangsur=1 AND jenis NOT IN ('JNS-36','JNS-37') ORDER BY waktubayar,kode ASC", strings.Join(kodeNonAirBill, "','"))
 		lpp_nonkode, e_lppnonkode := dbloket.QueryContext(ctx_nonairloket, qnonair_loket)
 		if e_lppnonkode != nil {
 			log.Fatalf("Gagal ambil data : %v", e_lppnonkode)
@@ -2520,25 +2520,25 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 	for tahun := tahun_lalu; tahun <= tahun_ini; tahun++ {
 		fmt.Println("\n- CEK SELISIH PIUTANG", tahun)
-		for {
-			db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
-			defer db.Close()
+		// for {
+		// 	db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
+		// 	defer db.Close()
 
-			// Mengecek koneksi ke database
-			err := db.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto Sleep
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := db.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto Sleep
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		Sleep:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// Sleep:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		db := connmaster.ConnMaster(dbUser, dbPass, dbName, dbHost, dbPort)
 		defer db.Close()
@@ -2558,7 +2558,7 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 		for rows.Next() {
 			var idpdam, nama_pdam, database string
-			err := rows.Scan(&idpdam, &nama_pdam, &database)
+			err = rows.Scan(&idpdam, &nama_pdam, &database)
 			if err != nil {
 				log.Fatalf("Data kosong : %v", err)
 			}
@@ -2600,25 +2600,25 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 			log.Fatalf("Tidak dapat terhubung ke database: %v", err)
 		}
 
-		for {
-			dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
-			defer dbbilling.Close()
+		// for {
+		// 	dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+		// 	defer dbbilling.Close()
 
-			// Mengecek koneksi ke database
-			err := dbbilling.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepB1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbbilling.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepB1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepB1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepB1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
 		defer dbloket.Close()
@@ -2628,30 +2628,30 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 			log.Fatalf("Tidak dapat terhubung ke database: %v", err)
 		}
 
-		for {
-			dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
-			defer dbloket.Close()
+		// for {
+		// 	dbloket := connmaster.ConnLoket(User_loket, Pass_loket, DB_loket, Ip_loket, Port_loket)
+		// 	defer dbloket.Close()
 
-			// Mengecek koneksi ke database
-			err := dbloket.Ping()
-			if err != nil {
-				fmt.Println("Tidak dapat terhubung ke database:", err)
-				// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-				// telebot.TeleBot(pesan)
-				goto SleepL1
-			} else {
+		// 	// Mengecek koneksi ke database
+		// 	err := dbloket.Ping()
+		// 	if err != nil {
+		// 		fmt.Println("Tidak dapat terhubung ke database:", err)
+		// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
+		// 		// telebot.TeleBot(pesan)
+		// 		goto SleepL1
+		// 	} else {
 
-				break
+		// 		break
 
-			}
-		SleepL1:
-			time.Sleep(5 * time.Second)
-		}
+		// 	}
+		// SleepL1:
+		// 	time.Sleep(5 * time.Second)
+		// }
 
 		fmt.Print("CEK TABEL BAYAR TAHUN BILLING")
 		// ctx = context.Background()
-		qlpp_cektabel := fmt.Sprint("SHOW TABLES LIKE 'bayar", tahun, "%'")
-		rows, err = dbbilling.QueryContext(ctx, qlpp_cektabel)
+		script = fmt.Sprint("SHOW TABLES LIKE 'bayar", tahun, "%'")
+		rows, err = dbbilling.QueryContext(ctx, script)
 		if err != nil {
 			log.Fatalf("Gagal ambil data : %v", err)
 		}
@@ -2670,14 +2670,15 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 			fmt.Print("CEK PERIODE SUDAH BERJALAN")
 			// ctx_cekper := context.Background()
-			qcek_per := fmt.Sprint("SELECT DATE_FORMAT(tglbayar,'%Y%m') AS periode,CONCAT(b.nama,' ','", tahun, "') AS bulan,LAST_DAY(tglbayar - INTERVAL 1 MONTH) AS tgllalu,IF(DATE(MAX(tglbayar))=LAST_DAY(MAX(tglbayar)),LAST_DAY(MAX(tglbayar)),DATE(MAX(tglbayar))) AS tglkini,DATE_FORMAT(CONCAT(YEAR(a.tglbayar),'-',MONTH(a.tglbayar),'-01') - INTERVAL 1 MONTH,'%Y%m') AS periode2 FROM bayar", tahun, " a LEFT JOIN namabulan b ON MONTH(a.tglbayar)=b.bulan GROUP BY DATE_FORMAT(tglbayar,'%Y%m') ORDER BY tglbayar ASC;")
-			rows, err = dbbilling.QueryContext(ctx, qcek_per)
+			script = fmt.Sprint("SELECT DATE_FORMAT(tglbayar,'%Y%m') AS periode,CONCAT(b.nama,' ','", tahun, "') AS bulan,LAST_DAY(tglbayar - INTERVAL 1 MONTH) AS tgllalu,IF(DATE(MAX(tglbayar))=LAST_DAY(MAX(tglbayar)),LAST_DAY(MAX(tglbayar)),DATE(MAX(tglbayar))) AS tglkini,DATE_FORMAT(CONCAT(YEAR(a.tglbayar),'-',MONTH(a.tglbayar),'-01') - INTERVAL 1 MONTH,'%Y%m') AS periode2 FROM bayar", tahun, " a LEFT JOIN namabulan b ON MONTH(a.tglbayar)=b.bulan GROUP BY DATE_FORMAT(tglbayar,'%Y%m') ORDER BY tglbayar ASC;")
+			rows, err = dbbilling.QueryContext(ctx, script)
 
 			if err != nil {
 				log.Fatalf("Gagal ambil data : %v", err)
 			}
 
 			defer rows.Close()
+			fmt.Printf(" [DONE]\n")
 
 			var periode []Periode
 			for rows.Next() {
@@ -2688,41 +2689,40 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 				}
 				periode = append(periode, per)
 			}
-			fmt.Printf(" [DONE]\n")
-
-			fmt.Print("MENGOSONGKAN TABEL TAMPUNGAN")
-			ctx_kosongdump := context.Background()
-			cek_kosongdump, e_cekkosdump := dbbilling.QueryContext(ctx_kosongdump, "DELETE FROM dumplaporanpiutang WHERE user='SERVICE'")
-
-			if e_cekkosdump != nil {
-				log.Fatalf("Gagal mengosongkan dumplaporanpiutang : %v", e_cekkosdump)
-			}
-
-			defer cek_kosongdump.Close()
-
-			// ctx_kosongdump2 := context.Background()
-			rows, err = dbbilling.QueryContext(ctx, "CREATE TABLE IF NOT EXISTS dumplaporanpiutang_manual LIKE dumplaporanpiutang")
-
-			if err != nil {
-				log.Fatalf("Gagal mengosongkan dumplaporanpiutang : %v", err)
-			}
-
-			defer rows.Close()
-
-			fmt.Printf(" [DONE]\n")
 
 			for _, data := range periode {
 				fmt.Println("")
 				fmt.Println("-> CEK PIUTANG BULAN", strings.ToUpper(data.bulan))
 
-				ctx_kosongdump3 := context.Background()
-				cek_kosongdump3, e_cekkosdump3 := dbbilling.QueryContext(ctx_kosongdump3, "DELETE FROM dumplaporanpiutang_manual WHERE user='SERVICE'")
+				fmt.Print("- MENGOSONGKAN TABEL TAMPUNGAN")
+				// ctx_kosongdump := context.Background()
+				rows, err = dbbilling.QueryContext(ctx, "DELETE FROM dumplaporanpiutang WHERE user='SERVICE'")
 
-				if e_cekkosdump3 != nil {
-					log.Fatalf("Gagal mengosongkan dumplaporanpiutang : %v", e_cekkosdump3)
+				if err != nil {
+					log.Fatalf("Gagal mengosongkan dumplaporanpiutang : %v", err)
 				}
 
-				defer cek_kosongdump3.Close()
+				defer rows.Close()
+
+				// ctx_kosongdump2 := context.Background()
+				rows, err = dbbilling.QueryContext(ctx, "CREATE TABLE IF NOT EXISTS dumplaporanpiutang_manual LIKE dumplaporanpiutang")
+
+				if err != nil {
+					log.Fatalf("Gagal mengosongkan dumplaporanpiutang : %v", err)
+				}
+
+				defer rows.Close()
+
+				// ctx_kosongdump3 := context.Background()
+				rows, err = dbbilling.QueryContext(ctx, "DELETE FROM dumplaporanpiutang_manual WHERE user='SERVICE'")
+
+				if err != nil {
+					log.Fatalf("Gagal mengosongkan dumplaporanpiutang : %v", err)
+				}
+
+				defer rows.Close()
+
+				fmt.Printf(" [DONE]\n")
 
 				// var piutang []Piutang
 				// //var posting []Posting
@@ -2731,80 +2731,107 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 				fmt.Println("- PROSES PIUTANG MANUAL ", strings.ToUpper(data.bulan))
 
 				// // AMBIL TAHUN
-				// ctx_tahun := context.Background()
-				qtahuns := fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
-				rows1, err1 := dbbilling.QueryContext(ctx, qtahuns)
-				if err1 != nil {
-					log.Fatalf("Gagal ambil data : %v", err1)
+				ctx_tahun := context.Background()
+				scripts := fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
+				tahun1, etahun1 := dbbilling.QueryContext(ctx_tahun, scripts)
+				if etahun1 != nil {
+					log.Fatalf("Gagal ambil data : %v", etahun1)
 				}
-				defer rows1.Close()
+				defer tahun1.Close()
 
 				var tahuns string
-				for rows1.Next() {
-					err1 = rows1.Scan(&tahuns)
-					if err1 != nil {
-						log.Fatal("Data kosong : ", err1)
+				for tahun1.Next() {
+					err = tahun1.Scan(&tahuns)
+					if err != nil {
+						log.Fatal("Data kosong : ", err)
 					}
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					fmt.Printf("AMBIL DATA PIUTANG MANUAL TAHUN : %s       \r", tahuns)
 
-					var q_piutang string
+					// var q_piutang string
 					// ctx_cek := context.Background()
-					q_cek := fmt.Sprintf("SELECT * FROM piutang WHERE flaglunas='0' AND flagangsur='0' AND periode<'%s' AND LEFT(periode,4)='%s'", data.Kode, tahuns)
-					rows, err := dbbilling.QueryContext(ctx, q_cek)
+					// script = fmt.Sprintf("SELECT * FROM piutang WHERE flaglunas='0' AND flagangsur='0' AND periode<'%s' AND LEFT(periode,4)='%s'", data.Kode, tahuns)
+					// rows, err = dbbilling.QueryContext(ctx_cek, script)
+					// if err != nil {
+					// 	log.Fatalf("Gagal ambil data : %v", err)
+					// }
+
+					// defer rows.Close()
+
+					// var cekisi string
+					// if rows.Next() {
+					// 	cekisi = "1"
+					// } else {
+					// 	cekisi = "0"
+					// }
+
+					// if cekisi == "1" {
+					// ctx_piutang := context.Background()
+					script = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM piutang  c WHERE c.flaglunas='0' AND c.flagangsur='0' AND c.periode<'%s' AND LEFT(c.periode,4)='%s'", data.Kode, tahuns)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data : %v", err)
 					}
 
 					defer rows.Close()
 
-					var cekisi string
-					if rows.Next() {
-						cekisi = "1"
-					} else {
-						cekisi = "0"
+					rows, err := dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+					if err != nil {
+						log.Fatal(err)
 					}
+					defer rows.Close()
 
-					if cekisi == "1" {
-						// ctx_piutang := context.Background()
-						q_piutang = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM piutang  c WHERE c.flaglunas='0' AND c.flagangsur='0' AND c.periode<'%s' AND LEFT(c.periode,4)='%s'", data.Kode, tahuns)
-						rows, err := dbbilling.QueryContext(ctx, q_piutang)
-						if err != nil {
-							log.Fatalf("Gagal ambil data : %v", err)
+					// Mengakhiri setiap koneksi yang sedang sleep
+					for rows.Next() {
+						var id int
+						if err := rows.Scan(&id); err != nil {
+							log.Fatal(err)
 						}
 
-						defer rows.Close()
+						_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+						if err != nil {
+							log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+						} else {
+							fmt.Print("")
+						}
 					}
+
+					// Memastikan tidak ada error saat iterasi
+					if err = rows.Err(); err != nil {
+						log.Fatal(err)
+					}
+					// }
 
 					fmt.Printf("AMBIL DATA PIUTANG MANUAL TAHUN : %s [DONE]\r", tahuns)
 					time.Sleep(500 * time.Millisecond)
 				}
+
 				fmt.Println("AMBIL DATA PIUTANG MANUAL [DONE]              ")
 
-				// ctx_tahun = context.Background()
-				qtahuns = fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
-				rows2, err2 := dbbilling.QueryContext(ctx, qtahuns)
-				if err2 != nil {
-					log.Fatalf("Gagal ambil data : %v", err2)
+				ctx_tahun = context.Background()
+				scripts = fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
+				tahun2, etahun2 := dbbilling.QueryContext(ctx_tahun, scripts)
+				if etahun2 != nil {
+					log.Fatalf("Gagal ambil data : %v", etahun2)
 				}
-				defer rows2.Close()
+				defer tahun2.Close()
 
-				for rows2.Next() {
-					err2 = rows2.Scan(&tahuns)
-					if err2 != nil {
-						log.Fatal("Data kosong : ", err2)
+				for tahun2.Next() {
+					err = tahun2.Scan(&tahuns)
+					if err != nil {
+						log.Fatal("Data kosong : ", err)
 					}
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					fmt.Printf("AMBIL DATA BAYAR MANUAL TAHUN : %s       \r", tahuns)
 
-					var q_piutang string
+					// var q_piutang string
 					// ctx_cek := context.Background()
-					q_cek := fmt.Sprintf("SELECT * FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' AND periode<'%s' AND LEFT(periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tgllalu)
-					rows, err := dbbilling.QueryContext(ctx, q_cek)
+					script = fmt.Sprintf("SELECT * FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' AND periode<'%s' AND LEFT(periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tgllalu)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data : %v", err)
 					}
@@ -2820,51 +2847,78 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 					if cekisi == "1" {
 						// ctx_piutang := context.Background()
-						q_piutang = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM bayar%d  c WHERE c.flaglunas='1' AND c.flagangsur='0' AND c.periode<'%s' AND LEFT(c.periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tgllalu)
-						rows, err := dbbilling.QueryContext(ctx, q_piutang)
+						script = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM bayar%d  c WHERE c.flaglunas='1' AND c.flagangsur='0' AND c.periode<'%s' AND LEFT(c.periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tgllalu)
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal ambil data : %v", err)
 						}
 
 						defer rows.Close()
+
+						rows, err = dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+						if err != nil {
+							log.Fatal(err)
+						}
+						defer rows.Close()
+
+						// Mengakhiri setiap koneksi yang sedang sleep
+						for rows.Next() {
+							var id int
+							if err := rows.Scan(&id); err != nil {
+								log.Fatal(err)
+							}
+
+							_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+							if err != nil {
+								log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+							} else {
+								fmt.Print("")
+							}
+						}
+
+						// Memastikan tidak ada error saat iterasi
+						if err = rows.Err(); err != nil {
+							log.Fatal(err)
+						}
 					}
 
 					fmt.Printf("AMBIL DATA BAYAR MANUAL TAHUN : %s [DONE]\r", tahuns)
 					time.Sleep(500 * time.Millisecond)
 					// }
 				}
+
 				fmt.Println("AMBIL DATA BAYAR MANUAL [DONE]              ")
 
-				q_banyakkor := fmt.Sprint("SELECT COUNT(*) AS banyak FROM ba_koreksi_rekening WHERE DATE(tanggalba)>'", data.Tgllalu, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "'")
-				rows, err = dbloket.QueryContext(ctx, q_banyakkor)
-				if err != nil {
-					log.Fatal("Gagal ambil data total : ", err)
+				script = fmt.Sprint("SELECT COUNT(*) AS banyak FROM ba_koreksi_rekening WHERE DATE(tanggalba)>'", data.Tgllalu, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "'")
+				kor1, ekor1 := dbloket.QueryContext(ctx, script)
+				if ekor1 != nil {
+					log.Fatal("Gagal ambil data total : ", ekor1)
 				}
-				defer rows.Close()
-
-				ctx_koreksim := context.Background()
-				q_koreksim := fmt.Sprint("SELECT CONCAT(periode,'.',nosamb) AS kode,nosamb,periode,bulan,kodegol,kodediameter,koderayon,COALESCE(stanlalu_lama,0),COALESCE(stankini_lama,0),COALESCE(pakai_lama,0),COALESCE(biayapemakaian_lama,0),COALESCE(administrasi_lama,0),COALESCE(pemeliharaan_lama,0),COALESCE(pelayanan_lama,0),COALESCE(retribusi_lama,0),COALESCE(meterai_lama,0),COALESCE(rekair_lama,0) FROM ba_koreksi_rekening WHERE DATE(tanggalba)>'", data.Tgllalu, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "' ORDER BY nosamb ASC,periode ASC,tanggalba DESC,nomorba DESC")
-				rows_kore, ekor := dbloket.QueryContext(ctx_koreksim, q_koreksim)
-				if ekor != nil {
-					log.Fatalf("Gagal ambil data : %v", ekor)
-				}
-				defer rows_kore.Close()
+				defer kor1.Close()
 
 				var totaldata string
-				if rows.Next() {
-					err := rows.Scan(&totaldata)
+				if kor1.Next() {
+					err = kor1.Scan(&totaldata)
 
 					if err != nil {
 						log.Fatal("Data total kosong : ", err)
 					}
 				}
 
+				// ctx_koreksim := context.Background()
+				scripts = fmt.Sprint("SELECT CONCAT(periode,'.',nosamb) AS kode,nosamb,periode,bulan,kodegol,kodediameter,koderayon,COALESCE(stanlalu_lama,0),COALESCE(stankini_lama,0),COALESCE(pakai_lama,0),COALESCE(biayapemakaian_lama,0),COALESCE(administrasi_lama,0),COALESCE(pemeliharaan_lama,0),COALESCE(pelayanan_lama,0),COALESCE(retribusi_lama,0),COALESCE(meterai_lama,0),COALESCE(rekair_lama,0) FROM ba_koreksi_rekening WHERE DATE(tanggalba)>'", data.Tgllalu, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "' ORDER BY nosamb ASC,periode ASC,tanggalba DESC,nomorba DESC")
+				kor2, ekor2 := dbloket.QueryContext(ctx, scripts)
+				if ekor2 != nil {
+					log.Fatalf("Gagal ambil data : %v", ekor2)
+				}
+				defer rows.Close()
+
 				var results []string
-				for rows_kore.Next() {
+				for kor2.Next() {
 					var kode, nosamb, periode, bulan, kodegol, kodediameter, koderayon string
 					var stanlalu, stankini, pakai, biayapemakaian, administrasi, pemeliharaan, pelayanan, retribusi, meterai, rekair float64
 
-					e_koreksim := rows_kore.Scan(&kode, &nosamb, &periode, &bulan, &kodegol, &kodediameter, &koderayon, &stanlalu, &stankini, &pakai, &biayapemakaian, &administrasi, &pemeliharaan, &pelayanan, &retribusi, &meterai, &rekair)
+					e_koreksim := kor2.Scan(&kode, &nosamb, &periode, &bulan, &kodegol, &kodediameter, &koderayon, &stanlalu, &stankini, &pakai, &biayapemakaian, &administrasi, &pemeliharaan, &pelayanan, &retribusi, &meterai, &rekair)
 
 					if e_koreksim != nil {
 						log.Fatal("Data kosong : ", e_koreksim)
@@ -2874,11 +2928,11 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 					// fmt.Println(result, "/", totaldata)
 					fmt.Printf("BALIK DATA KOREKSI MANUAL [%d/%s]\r", result, totaldata)
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					// ctx_upkoreksi := context.Background()
-					q_upkoreksi := fmt.Sprintf("SELECT COALESCE(SUM(administrasilain),0) AS administrasilain,COALESCE(SUM(pemeliharaanlain),0) AS pemeliharaanlain,COALESCE(SUM(retribusilain),0) AS retribusilain,COALESCE(SUM(pakai2),0) AS pakai2 FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
-					rows, err = dbbilling.QueryContext(ctx, q_upkoreksi)
+					script = fmt.Sprintf("SELECT COALESCE(SUM(administrasilain),0) AS administrasilain,COALESCE(SUM(pemeliharaanlain),0) AS pemeliharaanlain,COALESCE(SUM(retribusilain),0) AS retribusilain,COALESCE(SUM(pakai2),0) AS pakai2 FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data update koreksi : %v", err)
 					}
@@ -2901,11 +2955,11 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 								log.Fatal("Data pakai2 kosong : ", err)
 							}
 
-							Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+							// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 							// ctx_delkor := context.Background()
-							q_delkor := fmt.Sprintf("DELETE FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
-							rows, err = dbbilling.QueryContext(ctx, q_delkor)
+							script = fmt.Sprintf("DELETE FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
+							rows, err = dbbilling.QueryContext(ctx, script)
 							if err != nil {
 								log.Fatalf("Gagal hapus data koreksi : %v", err)
 							}
@@ -2915,141 +2969,166 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 						}
 					}
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					// ctx_inskor := context.Background()
-					q_inskor := fmt.Sprint("REPLACE INTO dumplaporanpiutang_manual VALUES (CONCAT('SERVICE','.','", kode, "'),'SERVICE','", kode, "','", periode, "','", nosamb, "','", bulan, "','", kodegol, "','", kodediameter, "','", koderayon, "',", stanlalu, ",", stankini, ",", pakai, ",0,0,0,0,", biayapemakaian, ",", administrasi, ",", pemeliharaan, ",", retribusi, ",", meterai, ",", rekair, ",0,", administrasilain, ",", pemeliharaanlain, ",", retribusilain, ",", pelayanan, ",", rekair+administrasilain+pemeliharaanlain+retribusilain+pelayanan, ",", pakai2, ")")
-					rows, err = dbbilling.QueryContext(ctx, q_inskor)
+					script = fmt.Sprint("REPLACE INTO dumplaporanpiutang_manual VALUES (CONCAT('SERVICE','.','", kode, "'),'SERVICE','", kode, "','", periode, "','", nosamb, "','", bulan, "','", kodegol, "','", kodediameter, "','", koderayon, "',", stanlalu, ",", stankini, ",", pakai, ",0,0,0,0,", biayapemakaian, ",", administrasi, ",", pemeliharaan, ",", retribusi, ",", meterai, ",", rekair, ",0,", administrasilain, ",", pemeliharaanlain, ",", retribusilain, ",", pelayanan, ",", rekair+administrasilain+pemeliharaanlain+retribusilain+pelayanan, ",", pakai2, ")")
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal insert data koreksi : %v", err)
 					}
 
 					defer rows.Close()
-					// fmt.Printf("BALIK DATA KOREKSI MANUAL [%d/%s] - 2 , %s\r", result, totaldata, kode)
+
+					rows, err = dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+					if err != nil {
+						log.Fatal(err)
+					}
+					defer rows.Close()
+
+					// Mengakhiri setiap koneksi yang sedang sleep
+					for rows.Next() {
+						var id int
+						if err := rows.Scan(&id); err != nil {
+							log.Fatal(err)
+						}
+
+						_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+						if err != nil {
+							log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+						} else {
+							fmt.Print("")
+						}
+					}
+
+					// Memastikan tidak ada error saat iterasi
+					if err = rows.Err(); err != nil {
+						log.Fatal(err)
+					}
 				}
-				// }
+
 				fmt.Println("BALIK DATA KOREKSI MANUAL [DONE]                              ")
 
 				fmt.Print("PROSES DRD ", strings.ToUpper(data.bulan))
-				ctx_cekposting := context.Background()
-				q_cekposting := fmt.Sprint("SHOW TABLES LIKE 'drdposting", data.Kode, "%'")
-				cek_posting, eposting := dbbilling.QueryContext(ctx_cekposting, q_cekposting)
-				if eposting != nil {
-					log.Fatalf("Gagal ambil data : %v", eposting)
+				// ctx_cekposting := context.Background()
+				script = fmt.Sprint("SHOW TABLES LIKE 'drdposting", data.Kode, "%'")
+				rows, err = dbbilling.QueryContext(ctx, script)
+				if err != nil {
+					log.Fatalf("Gagal ambil data : %v", err)
 				}
 
-				defer cek_posting.Close()
+				defer rows.Close()
 
 				var tabelposting string
-				if cek_posting.Next() {
+				if rows.Next() {
 					tabelposting = "1"
 				} else {
 					tabelposting = "0"
 				}
 
-				ctx_cekreal := context.Background()
-				q_cekreal := fmt.Sprint("SHOW TABLES LIKE 'drd", data.Kode, "%'")
-				cek_real, ereal := dbbilling.QueryContext(ctx_cekreal, q_cekreal)
-				if ereal != nil {
-					log.Fatalf("Gagal ambil data : %v", eposting)
+				// ctx_cekreal := context.Background()
+				script = fmt.Sprint("SHOW TABLES LIKE 'drd", data.Kode, "%'")
+				rows, err = dbbilling.QueryContext(ctx, script)
+				if err != nil {
+					log.Fatalf("Gagal ambil data : %v", err)
 				}
 
-				defer cek_real.Close()
+				defer rows.Close()
 
 				var tabelreal string
-				if cek_real.Next() {
+				if rows.Next() {
 					tabelreal = "1"
 				} else {
 					tabelreal = "0"
 				}
 
-				var q_posting string
+				// var q_posting string
 				if tabelposting == "1" {
-					ctx_posting := context.Background()
-					q_posting = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',CONCAT('%s','.',c.nosamb)) AS id,'SERVICE' AS USER, CONCAT('%s','.',c.nosamb) AS kode,'%s' AS periode,c.nosamb,'%s' AS bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM drdposting"+data.Kode+"  c  WHERE c.flagpublish='1'", data.Kode, data.Kode, data.Kode, data.bulan)
-					posting, epos := dbbilling.QueryContext(ctx_posting, q_posting)
-					if epos != nil {
-						log.Fatalf("Gagal ambil data : %v", epos)
+					// ctx_posting := context.Background()
+					script = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',CONCAT('%s','.',c.nosamb)) AS id,'SERVICE' AS USER, CONCAT('%s','.',c.nosamb) AS kode,'%s' AS periode,c.nosamb,'%s' AS bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM drdposting"+data.Kode+"  c  WHERE c.flagpublish='1'", data.Kode, data.Kode, data.Kode, data.bulan)
+					rows, err = dbbilling.QueryContext(ctx, script)
+					if err != nil {
+						log.Fatalf("Gagal ambil data : %v", err)
 					}
-					defer posting.Close()
+					defer rows.Close()
 				} else {
 					if tabelreal == "1" {
-						ctx_posting := context.Background()
-						q_posting = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',CONCAT('%s','.',c.nosamb)) AS id,'SERVICE' AS USER, CONCAT('%s','.',c.nosamb) AS kode,'%s' AS periode,c.nosamb,'%s' AS bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM drd"+data.Kode+"  c  WHERE c.flagpublish='1'", data.Kode, data.Kode, data.Kode, data.bulan)
-						posting, epos := dbbilling.QueryContext(ctx_posting, q_posting)
-						if epos != nil {
-							log.Fatalf("Gagal ambil data : %v", epos)
+						// ctx_posting := context.Background()
+						script = fmt.Sprintf("REPLACE INTO dumplaporanpiutang_manual SELECT CONCAT('SERVICE.',CONCAT('%s','.',c.nosamb)) AS id,'SERVICE' AS USER, CONCAT('%s','.',c.nosamb) AS kode,'%s' AS periode,c.nosamb,'%s' AS bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM drd"+data.Kode+"  c  WHERE c.flagpublish='1'", data.Kode, data.Kode, data.Kode, data.bulan)
+						rows, err = dbbilling.QueryContext(ctx, script)
+						if err != nil {
+							log.Fatalf("Gagal ambil data : %v", err)
 						}
-						defer posting.Close()
+						defer rows.Close()
 					}
 				}
 
 				fmt.Println(" [DONE]")
 
 				fmt.Print("PROSES LPP ", strings.ToUpper(data.bulan))
-				ctx = context.Background()
-				q_lpp := fmt.Sprint("UPDATE dumplaporanpiutang_manual a,(SELECT * FROM bayar", tahun, "  c WHERE c.flaglunas='1' AND c.flagangsur='0' AND DATE_FORMAT(tglbayar,'%Y%m')='", data.Kode, "') b SET a.stanlalu=a.stanlalu-b.stanlalu,a.stanskrg=a.stanlalu-b.stanlalu,a.pakai=a.pakai-b.pakai,a.biayapemakaian=a.biayapemakaian-b.biayapemakaian,a.administrasi=a.administrasi-b.administrasi,a.pemeliharaan=a.pemeliharaan-b.pemeliharaan,a.pelayanan=a.pelayanan-b.pelayanan,a.retribusi=a.retribusi-b.retribusi,a.meterai=a.meterai-b.meterai,a.rekair=a.rekair-b.rekair WHERE a.kode=b.kode")
+				// ctx = context.Background()
+				script = fmt.Sprint("UPDATE dumplaporanpiutang_manual a,(SELECT * FROM bayar", tahun, "  c WHERE c.flaglunas='1' AND c.flagangsur='0' AND DATE_FORMAT(tglbayar,'%Y%m')='", data.Kode, "') b SET a.stanlalu=a.stanlalu-b.stanlalu,a.stanskrg=a.stanlalu-b.stanlalu,a.pakai=a.pakai-b.pakai,a.biayapemakaian=a.biayapemakaian-b.biayapemakaian,a.administrasi=a.administrasi-b.administrasi,a.pemeliharaan=a.pemeliharaan-b.pemeliharaan,a.pelayanan=a.pelayanan-b.pelayanan,a.retribusi=a.retribusi-b.retribusi,a.meterai=a.meterai-b.meterai,a.rekair=a.rekair-b.rekair WHERE a.kode=b.kode")
 
-				cek_lpp, elpp := dbbilling.QueryContext(ctx, q_lpp)
-				if elpp != nil {
-					log.Fatalf("Gagal ambil data : %v", elpp)
+				rows, err = dbbilling.QueryContext(ctx, script)
+				if err != nil {
+					log.Fatalf("Gagal ambil data : %v", err)
 				}
 
-				defer cek_lpp.Close()
+				defer rows.Close()
 
 				fmt.Println(" [DONE]")
 
-				q_banyakkor = fmt.Sprint("SELECT COUNT(*) AS banyak FROM (SELECT * FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')='", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode='", data.Kode, "' GROUP BY nosamb,periode) a")
-				rows, err = dbloket.QueryContext(ctx, q_banyakkor)
-				if err != nil {
-					log.Fatal("Gagal ambil data total : ", err)
+				script = fmt.Sprint("SELECT COUNT(*) AS banyak FROM (SELECT * FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')='", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "' GROUP BY nosamb,periode) a")
+				kor3, ekor3 := dbloket.QueryContext(ctx, script)
+				if ekor3 != nil {
+					log.Fatal("Gagal ambil data total : ", ekor3)
 				}
-				defer rows.Close()
+				defer kor3.Close()
 
 				var tot string
-				if rows.Next() {
-					err := rows.Scan(&tot)
+				if kor3.Next() {
+					err = kor3.Scan(&tot)
 
 					if err != nil {
 						log.Fatal("Data total kosong : ", err)
 					}
 				}
 
-				ctx_koreksim = context.Background()
-				q_koreksim = fmt.Sprint("SELECT CONCAT(periode,'.',nosamb) AS kode,nosamb,periode,bulan,kodegol,kodediameter,koderayon,SUM(COALESCE(stanlalu_baru,0))-SUM(COALESCE(stanlalu_lama,0)),SUM(COALESCE(stankini_baru,0))-SUM(COALESCE(stankini_lama,0)),SUM(COALESCE(pakai_baru,0))-SUM(COALESCE(pakai_lama,0)),SUM(COALESCE(biayapemakaian_baru,0))-SUM(COALESCE(biayapemakaian_lama,0)),SUM(COALESCE(administrasi_baru,0))-SUM(COALESCE(administrasi_lama,0)),SUM(COALESCE(pemeliharaan_baru,0))-SUM(COALESCE(pemeliharaan_lama,0)),SUM(COALESCE(pelayanan_baru,0))-SUM(COALESCE(pelayanan_lama,0)),SUM(COALESCE(retribusi_baru,0))-SUM(COALESCE(retribusi_lama,0)),SUM(COALESCE(meterai_baru,0))-SUM(COALESCE(meterai_lama,0)),SUM(COALESCE(rekair_baru,0))-SUM(COALESCE(rekair_lama,0)) FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')='", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "' GROUP BY CONCAT(periode,'.',nosamb)")
-				rows_kore, ekor = dbloket.QueryContext(ctx_koreksim, q_koreksim)
-				if ekor != nil {
-					log.Fatalf("Gagal ambil data : %v", ekor)
+				// ctx_koreksim = context.Background()
+				scripts = fmt.Sprint("SELECT CONCAT(periode,'.',nosamb) AS kode,nosamb,periode,bulan,kodegol,kodediameter,koderayon,SUM(COALESCE(stanlalu_baru,0))-SUM(COALESCE(stanlalu_lama,0)),SUM(COALESCE(stankini_baru,0))-SUM(COALESCE(stankini_lama,0)),SUM(COALESCE(pakai_baru,0))-SUM(COALESCE(pakai_lama,0)),SUM(COALESCE(biayapemakaian_baru,0))-SUM(COALESCE(biayapemakaian_lama,0)),SUM(COALESCE(administrasi_baru,0))-SUM(COALESCE(administrasi_lama,0)),SUM(COALESCE(pemeliharaan_baru,0))-SUM(COALESCE(pemeliharaan_lama,0)),SUM(COALESCE(pelayanan_baru,0))-SUM(COALESCE(pelayanan_lama,0)),SUM(COALESCE(retribusi_baru,0))-SUM(COALESCE(retribusi_lama,0)),SUM(COALESCE(meterai_baru,0))-SUM(COALESCE(meterai_lama,0)),SUM(COALESCE(rekair_baru,0))-SUM(COALESCE(rekair_lama,0)) FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')='", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<'", data.Kode, "' GROUP BY CONCAT(periode,'.',nosamb)")
+				kor4, ekor4 := dbloket.QueryContext(ctx, scripts)
+				if ekor4 != nil {
+					log.Fatalf("Gagal ambil data : %v", ekor4)
 				}
-				defer rows_kore.Close()
+				defer kor4.Close()
 
 				var resultts2 []string
-				for rows_kore.Next() {
+				for kor4.Next() {
 					var kode, nosamb, periode, bulan, kodegol, kodediameter, koderayon string
 					var stanlalu_selisih, stankini_selisih, pakai_selisih, biayapemakaian_selisih, administrasi_selisih, pemeliharaan_selisih, pelayanan_selisih, retribusi_selisih, meterai_selisih, rekair_selisih float64
 
-					e_koreksim := rows_kore.Scan(&kode, &nosamb, &periode, &bulan, &kodegol, &kodediameter, &koderayon, &stanlalu_selisih, &stankini_selisih, &pakai_selisih, &biayapemakaian_selisih, &administrasi_selisih, &pemeliharaan_selisih, &pelayanan_selisih, &retribusi_selisih, &meterai_selisih, &rekair_selisih)
+					err = kor4.Scan(&kode, &nosamb, &periode, &bulan, &kodegol, &kodediameter, &koderayon, &stanlalu_selisih, &stankini_selisih, &pakai_selisih, &biayapemakaian_selisih, &administrasi_selisih, &pemeliharaan_selisih, &pelayanan_selisih, &retribusi_selisih, &meterai_selisih, &rekair_selisih)
 
-					if e_koreksim != nil {
-						log.Fatal("Data kosong : ", e_koreksim)
+					if err != nil {
+						log.Fatal("Data kosong : ", err)
 					}
 					resultts2 = append(resultts2, kode)
 					resultt := len(resultts2)
 					// fmt.Println(result, "/", totaldata)
 					fmt.Printf("PROSES DATA KOREKSI MANUAL [%d/%s]\r", resultt, tot)
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					// ctx_upkoreksi := context.Background()
-					q_upkoreksi := fmt.Sprintf("SELECT COALESCE(SUM(rekair),0) AS rekair,COALESCE(SUM(stanlalu),0) AS stanlalu,COALESCE(SUM(stanskrg),0) AS stanskrg,COALESCE(SUM(pakai),0) AS pakai,COALESCE(SUM(biayapemakaian),0) AS biayapemakaian,COALESCE(SUM(administrasi),0) AS administrasi,COALESCE(SUM(pemeliharaan),0) AS pemeliharaan,COALESCE(SUM(retribusi),0) AS retribusi,COALESCE(SUM(meterai),0) AS meterai,COALESCE(SUM(pelayanan),0) AS pelayanan, COALESCE(SUM(administrasilain),0) AS administrasilain,COALESCE(SUM(pemeliharaanlain),0) AS pemeliharaanlain,COALESCE(SUM(retribusilain),0) AS retribusilain,COALESCE(SUM(pakai2),0) AS pakai2 FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
-					rows, err = dbbilling.QueryContext(ctx, q_upkoreksi)
+					script = fmt.Sprintf("SELECT COALESCE(SUM(rekair),0) AS rekair,COALESCE(SUM(stanlalu),0) AS stanlalu,COALESCE(SUM(stanskrg),0) AS stanskrg,COALESCE(SUM(pakai),0) AS pakai,COALESCE(SUM(biayapemakaian),0) AS biayapemakaian,COALESCE(SUM(administrasi),0) AS administrasi,COALESCE(SUM(pemeliharaan),0) AS pemeliharaan,COALESCE(SUM(retribusi),0) AS retribusi,COALESCE(SUM(meterai),0) AS meterai,COALESCE(SUM(pelayanan),0) AS pelayanan, COALESCE(SUM(administrasilain),0) AS administrasilain,COALESCE(SUM(pemeliharaanlain),0) AS pemeliharaanlain,COALESCE(SUM(retribusilain),0) AS retribusilain,COALESCE(SUM(pakai2),0) AS pakai2 FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE' GROUP BY CONCAT(periode,'.',nosamb)", kode)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data update koreksi : %v", err)
 					}
 
 					defer rows.Close()
 
-					var rekair, stanlalu, stankini, pakai, biayapemakaian, administrasi, pemeliharaan, retribusi, meterai, pelayanan, administrasilain, pemeliharaanlain, retribusilain, pakai2 float64
+					var rekair, stanlalu, stankini, pakai, biayapemakaian, administrasi, pemeliharaan, retribusi, meterai, pelayanan, administrasilain, pemeliharaanlain, retribusilain, total, pakai2 float64
 					// var cekisi string
 					// if rows.Next() {
 					// 	cekisi = "1"
@@ -3061,62 +3140,117 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 						err = rows.Scan(&rekair, &stanlalu, &stankini, &pakai, &biayapemakaian, &administrasi, &pemeliharaan, &retribusi, &meterai, &pelayanan, &administrasilain, &pemeliharaanlain, &retribusilain, &pakai2)
 
+						stanlalu = stanlalu + stanlalu_selisih
+						stankini = stankini + stankini_selisih
+						pakai = pakai + pakai_selisih
+						biayapemakaian = biayapemakaian + biayapemakaian_selisih
+						administrasi = administrasi + administrasi_selisih
+						pemeliharaan = pemeliharaan + pemeliharaan_selisih
+						retribusi = retribusi + retribusi_selisih
+						meterai = meterai + meterai_selisih
+						rekair = rekair + rekair_selisih
+						pelayanan = pelayanan + pelayanan_selisih
+						total = (rekair + rekair_selisih) + administrasilain + pemeliharaanlain + retribusilain + (pelayanan + pelayanan_selisih)
+
 						if err != nil {
 							log.Fatal("Data pakai2 kosong : ", err)
 						}
 
-						Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+						// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 						// ctx_delkor := context.Background()
-						q_delkor := fmt.Sprintf("DELETE FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
-						rows, err = dbbilling.QueryContext(ctx, q_delkor)
+						script = fmt.Sprintf("DELETE FROM dumplaporanpiutang_manual WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal hapus data koreksi : %v", err)
 						}
 
 						defer rows.Close()
 						// fmt.Printf("BALIK DATA KOREKSI MANUAL [%d/%s] - 1 , %s\r", result, totaldata, kode)
-						Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+						// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 						// ctx_inskor := context.Background()
-						q_inskor := fmt.Sprint("REPLACE INTO dumplaporanpiutang_manual VALUES (CONCAT('SERVICE','.','", kode, "'),'SERVICE','", kode, "','", periode, "','", nosamb, "','", bulan, "','", kodegol, "','", kodediameter, "','", koderayon, "',", stanlalu+stanlalu_selisih, ",", stankini+stankini_selisih, ",", pakai+pakai_selisih, ",0,0,0,0,", biayapemakaian+biayapemakaian_selisih, ",", administrasi+administrasi_selisih, ",", pemeliharaan+pemeliharaan_selisih, ",", retribusi+retribusi_selisih, ",", meterai+meterai_selisih, ",", rekair+rekair_selisih, ",0,", administrasilain, ",", pemeliharaanlain, ",", retribusilain, ",", pelayanan+pelayanan_selisih, ",", (rekair+rekair_selisih)+administrasilain+pemeliharaanlain+retribusilain+(pelayanan+pelayanan_selisih), ",", pakai2, ")")
-						rows, err = dbbilling.QueryContext(ctx, q_inskor)
+						script = fmt.Sprint("REPLACE INTO dumplaporanpiutang_manual VALUES (CONCAT('SERVICE','.','", kode, "'),'SERVICE','", kode, "','", periode, "','", nosamb, "','", bulan, "','", kodegol, "','", kodediameter, "','", koderayon, "',", stanlalu, ",", stankini, ",", pakai, ",0,0,0,0,", biayapemakaian, ",", administrasi, ",", pemeliharaan, ",", retribusi, ",", meterai, ",", rekair, ",0,", administrasilain, ",", pemeliharaanlain, ",", retribusilain, ",", pelayanan, ",", total, ",", pakai2, ")")
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal insert data koreksi : %v", err)
 						}
 
 						defer rows.Close()
+
+						rows, err = dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+						if err != nil {
+							log.Fatal(err)
+						}
+						defer rows.Close()
+
+						// Mengakhiri setiap koneksi yang sedang sleep
+						for rows.Next() {
+							var id int
+							if err := rows.Scan(&id); err != nil {
+								log.Fatal(err)
+							}
+
+							_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+							if err != nil {
+								log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+							} else {
+								fmt.Print("")
+							}
+						}
+
+						// Memastikan tidak ada error saat iterasi
+						if err = rows.Err(); err != nil {
+							log.Fatal(err)
+						}
 					}
 					// }
 
 					// fmt.Printf("BALIK DATA KOREKSI MANUAL [%d/%s] - 2 , %s\r", result, totaldata, kode)
 				}
-				// }
+
 				fmt.Println("PROSES DATA KOREKSI MANUAL [DONE]                              ")
+
+				script = fmt.Sprintf("SELECT SUM(rekair) FROM dumplaporanpiutang_manual WHERE user='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE tglhapussecaraakuntansi<='%s')", data.Tglkini)
+				rows, err = dbbilling.QueryContext(ctx, script)
+				if err != nil {
+					log.Fatal("Gagal ambil data total : ", err)
+				}
+				defer rows.Close()
+
+				var jumrekair string
+				if rows.Next() {
+					err := rows.Scan(&jumrekair)
+
+					if err != nil {
+						log.Fatal("Data total kosong : ", err)
+					}
+				}
+				fmt.Println(jumrekair)
 
 				fmt.Println("- PROSES PIUTANG LAPORAN ", strings.ToUpper(data.bulan))
 
-				qtahuns = fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
-				rows1, err1 = dbbilling.QueryContext(ctx, qtahuns)
-				if err1 != nil {
-					log.Fatalf("Gagal ambil data : %v", err1)
+				script = fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
+				tahun1, etahun1 = dbbilling.QueryContext(ctx, script)
+				if etahun1 != nil {
+					log.Fatalf("Gagal ambil data : %v", etahun1)
 				}
-				defer rows1.Close()
+				defer tahun1.Close()
 
-				for rows1.Next() {
-					err1 = rows1.Scan(&tahuns)
-					if err1 != nil {
-						log.Fatal("Data kosong : ", err1)
+				for tahun1.Next() {
+					etahun1 = tahun1.Scan(&tahuns)
+					if etahun1 != nil {
+						log.Fatal("Data kosong : ", etahun1)
 					}
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					fmt.Printf("AMBIL DATA PIUTANG LAPORAN TAHUN : %s       \r", tahuns)
 
-					var q_piutang string
+					// var q_piutang string
 					// ctx_cek := context.Background()
-					q_cek := fmt.Sprintf("SELECT * FROM piutang WHERE flaglunas='0' AND flagangsur='0' AND periode<='%s' AND LEFT(periode,4)='%s'", data.Kode, tahuns)
-					rows, err := dbbilling.QueryContext(ctx, q_cek)
+					script = fmt.Sprintf("SELECT * FROM piutang WHERE flaglunas='0' AND flagangsur='0' AND periode<='%s' AND LEFT(periode,4)='%s'", data.Kode, tahuns)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data : %v", err)
 					}
@@ -3132,42 +3266,69 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 					if cekisi == "1" {
 						// ctx_piutang := context.Background()
-						q_piutang = fmt.Sprintf("REPLACE INTO dumplaporanpiutang SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM piutang  c WHERE c.flaglunas='0' AND c.flagangsur='0' AND c.periode<='%s' AND LEFT(c.periode,4)='%s'", data.Kode, tahuns)
-						rows, err := dbbilling.QueryContext(ctx, q_piutang)
+						script = fmt.Sprintf("REPLACE INTO dumplaporanpiutang SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM piutang  c WHERE c.flaglunas='0' AND c.flagangsur='0' AND c.periode<='%s' AND LEFT(c.periode,4)='%s'", data.Kode, tahuns)
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal ambil data : %v", err)
 						}
 
 						defer rows.Close()
+
+						rows, err = dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+						if err != nil {
+							log.Fatal(err)
+						}
+						defer rows.Close()
+
+						// Mengakhiri setiap koneksi yang sedang sleep
+						for rows.Next() {
+							var id int
+							if err := rows.Scan(&id); err != nil {
+								log.Fatal(err)
+							}
+
+							_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+							if err != nil {
+								log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+							} else {
+								fmt.Print("")
+							}
+						}
+
+						// Memastikan tidak ada error saat iterasi
+						if err = rows.Err(); err != nil {
+							log.Fatal(err)
+						}
 					}
 
 					fmt.Printf("AMBIL DATA PIUTANG LAPORAN TAHUN : %s [DONE]\r", tahuns)
 					time.Sleep(500 * time.Millisecond)
 				}
+
 				fmt.Println("AMBIL DATA PIUTANG LAPORAN [DONE]              ")
 
 				// ctx_tahun = context.Background()
-				qtahuns = fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
-				rows2, err2 = dbbilling.QueryContext(ctx, qtahuns)
-				if err2 != nil {
-					log.Fatalf("Gagal ambil data : %v", err2)
+				script = fmt.Sprintf("SELECT tahun_per FROM (SELECT LEFT(periode,4) AS tahun_per FROM piutang WHERE flaglunas='0' AND flagangsur='0' GROUP BY LEFT(periode,4) UNION SELECT LEFT(periode,4) AS tahun_per FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' GROUP BY LEFT(periode,4)) a GROUP BY tahun_per", tahun)
+				tahun2, etahun2 = dbbilling.QueryContext(ctx, script)
+				if etahun2 != nil {
+					log.Fatalf("Gagal ambil data : %v", etahun2)
 				}
-				defer rows2.Close()
+				defer tahun2.Close()
 
-				for rows2.Next() {
-					err2 = rows2.Scan(&tahuns)
-					if err2 != nil {
-						log.Fatal("Data kosong : ", err2)
+				for tahun2.Next() {
+					err = tahun2.Scan(&tahuns)
+					if err != nil {
+						log.Fatal("Data kosong : ", err)
 					}
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					fmt.Printf("AMBIL DATA BAYAR LAPORAN TAHUN : %s       \r", tahuns)
 
-					var q_piutang string
+					// var q_piutang string
 					// ctx_cek := context.Background()
-					q_cek := fmt.Sprintf("SELECT * FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' AND periode<='%s' AND LEFT(periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tglkini)
-					rows, err := dbbilling.QueryContext(ctx, q_cek)
+					script = fmt.Sprintf("SELECT * FROM bayar%d WHERE flaglunas='1' AND flagangsur='0' AND periode<='%s' AND LEFT(periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tglkini)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data : %v", err)
 					}
@@ -3183,40 +3344,50 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 					if cekisi == "1" {
 						// ctx_piutang := context.Background()
-						q_piutang = fmt.Sprintf("REPLACE INTO dumplaporanpiutang SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM bayar%d  c WHERE c.flaglunas='1' AND c.flagangsur='0' AND c.periode<='%s' AND LEFT(c.periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tglkini)
-						rows, err := dbbilling.QueryContext(ctx, q_piutang)
+						script = fmt.Sprintf("REPLACE INTO dumplaporanpiutang SELECT CONCAT('SERVICE.',c.kode),'SERVICE', c.kode,c.periode,c.nosamb,c.bulan,c.kodegol,c.kodediameter,c.koderayon,c.stanlalu,c.stanskrg,c.pakai,c.prog1,c.prog2,c.prog3,c.prog4,c.biayapemakaian,c.administrasi,c.pemeliharaan,c.retribusi,c.meterai,c.rekair,0 AS denda,c.administrasilain,c.pemeliharaanlain,c.retribusilain,c.pelayanan,c.rekair+c.administrasilain+c.pemeliharaanlain+c.retribusilain+c.pelayanan  AS total,pakai2 FROM bayar%d  c WHERE c.flaglunas='1' AND c.flagangsur='0' AND c.periode<='%s' AND LEFT(c.periode,4)='%s' AND DATE(tglbayar)>'%s'", tahun, data.Kode, tahuns, data.Tglkini)
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal ambil data : %v", err)
 						}
 
 						defer rows.Close()
+
+						rows, err = dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+						if err != nil {
+							log.Fatal(err)
+						}
+						defer rows.Close()
+
+						// Mengakhiri setiap koneksi yang sedang sleep
+						for rows.Next() {
+							var id int
+							if err := rows.Scan(&id); err != nil {
+								log.Fatal(err)
+							}
+
+							_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+							if err != nil {
+								log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+							} else {
+								fmt.Print("")
+							}
+						}
+
+						// Memastikan tidak ada error saat iterasi
+						if err = rows.Err(); err != nil {
+							log.Fatal(err)
+						}
 					}
 
 					fmt.Printf("AMBIL DATA BAYAR LAPORAN TAHUN : %s [DONE]\r", tahuns)
 					time.Sleep(500 * time.Millisecond)
 					// }
 				}
+
 				fmt.Println("AMBIL DATA BAYAR LAPORAN [DONE]              ")
 
-				// q_sumrek := fmt.Sprintf("SELECT SUM(rekair) FROM dumplaporanpiutang WHERE user='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE tglhapussecaraakuntansi<='%s')", data.Tglkini)
-				// rows, err = dbbilling.QueryContext(ctx, q_sumrek)
-				// if err != nil {
-				// 	log.Fatal("Gagal ambil data total : ", err)
-				// }
-				// defer rows.Close()
-
-				// var jumrekair string
-				// if rows.Next() {
-				// 	err := rows.Scan(&jumrekair)
-
-				// 	if err != nil {
-				// 		log.Fatal("Data total kosong : ", err)
-				// 	}
-				// }
-				// fmt.Println(jumrekair)
-
-				q_banyakkor = fmt.Sprint("SELECT COUNT(*) AS banyak FROM (SELECT * FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')>'", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<='", data.Kode, "') a")
-				rows, err = dbloket.QueryContext(ctx, q_banyakkor)
+				script = fmt.Sprint("SELECT COUNT(*) AS banyak FROM (SELECT * FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')>'", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<='", data.Kode, "') a")
+				rows, err = dbloket.QueryContext(ctx, script)
 				if err != nil {
 					log.Fatal("Gagal ambil data total : ", err)
 				}
@@ -3224,48 +3395,48 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 				var tots string
 				if rows.Next() {
-					err := rows.Scan(&tots)
+					err = rows.Scan(&tots)
 
 					if err != nil {
 						log.Fatal("Data total kosong : ", err)
 					}
 				}
 
-				ctx_koreksim = context.Background()
-				q_koreksim = fmt.Sprint("SELECT CONCAT(periode,'.',nosamb) AS kode,nosamb,periode,bulan,kodegol,kodediameter,koderayon,SUM(COALESCE(stanlalu_baru,0))-SUM(COALESCE(stanlalu_lama,0)),SUM(COALESCE(stankini_baru,0))-SUM(COALESCE(stankini_lama,0)),SUM(COALESCE(pakai_baru,0))-SUM(COALESCE(pakai_lama,0)),SUM(COALESCE(biayapemakaian_baru,0))-SUM(COALESCE(biayapemakaian_lama,0)),SUM(COALESCE(administrasi_baru,0))-SUM(COALESCE(administrasi_lama,0)),SUM(COALESCE(pemeliharaan_baru,0))-SUM(COALESCE(pemeliharaan_lama,0)),SUM(COALESCE(pelayanan_baru,0))-SUM(COALESCE(pelayanan_lama,0)),SUM(COALESCE(retribusi_baru,0))-SUM(COALESCE(retribusi_lama,0)),SUM(COALESCE(meterai_baru,0))-SUM(COALESCE(meterai_lama,0)),SUM(COALESCE(rekair_baru,0))-SUM(COALESCE(rekair_lama,0)) FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')>'", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<='", data.Kode, "' GROUP BY CONCAT(periode,'.',nosamb)")
-				rows_kore, ekor = dbloket.QueryContext(ctx_koreksim, q_koreksim)
-				if ekor != nil {
-					log.Fatalf("Gagal ambil data : %v", ekor)
+				// ctx_koreksim = context.Background()
+				script = fmt.Sprint("SELECT CONCAT(periode,'.',nosamb) AS kode,nosamb,periode,bulan,kodegol,kodediameter,koderayon,SUM(COALESCE(stanlalu_baru,0))-SUM(COALESCE(stanlalu_lama,0)),SUM(COALESCE(stankini_baru,0))-SUM(COALESCE(stankini_lama,0)),SUM(COALESCE(pakai_baru,0))-SUM(COALESCE(pakai_lama,0)),SUM(COALESCE(biayapemakaian_baru,0))-SUM(COALESCE(biayapemakaian_lama,0)),SUM(COALESCE(administrasi_baru,0))-SUM(COALESCE(administrasi_lama,0)),SUM(COALESCE(pemeliharaan_baru,0))-SUM(COALESCE(pemeliharaan_lama,0)),SUM(COALESCE(pelayanan_baru,0))-SUM(COALESCE(pelayanan_lama,0)),SUM(COALESCE(retribusi_baru,0))-SUM(COALESCE(retribusi_lama,0)),SUM(COALESCE(meterai_baru,0))-SUM(COALESCE(meterai_lama,0)),SUM(COALESCE(rekair_baru,0))-SUM(COALESCE(rekair_lama,0)) FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')>'", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<='", data.Kode, "' GROUP BY CONCAT(periode,'.',nosamb)")
+				kor1, ekor1 = dbloket.QueryContext(ctx, script)
+				if ekor1 != nil {
+					log.Fatalf("Gagal ambil data : %v", ekor1)
 				}
-				defer rows_kore.Close()
+				defer kor1.Close()
 
 				var resultss []string
-				for rows_kore.Next() {
+				for kor1.Next() {
 					var kode, nosamb, periode, bulan, kodegol, kodediameter, koderayon string
 					var stanlalu_selisih, stankini_selisih, pakai_selisih, biayapemakaian_selisih, administrasi_selisih, pemeliharaan_selisih, pelayanan_selisih, retribusi_selisih, meterai_selisih, rekair_selisih float64
 
-					e_koreksim := rows_kore.Scan(&kode, &nosamb, &periode, &bulan, &kodegol, &kodediameter, &koderayon, &stanlalu_selisih, &stankini_selisih, &pakai_selisih, &biayapemakaian_selisih, &administrasi_selisih, &pemeliharaan_selisih, &pelayanan_selisih, &retribusi_selisih, &meterai_selisih, &rekair_selisih)
+					err = kor1.Scan(&kode, &nosamb, &periode, &bulan, &kodegol, &kodediameter, &koderayon, &stanlalu_selisih, &stankini_selisih, &pakai_selisih, &biayapemakaian_selisih, &administrasi_selisih, &pemeliharaan_selisih, &pelayanan_selisih, &retribusi_selisih, &meterai_selisih, &rekair_selisih)
 
-					if e_koreksim != nil {
-						log.Fatal("Data kosong : ", e_koreksim)
+					if err != nil {
+						log.Fatal("Data kosong : ", err)
 					}
 					resultss = append(resultss, kode)
 					resultt := len(resultss)
 					// fmt.Println(result, "/", totaldata)
 					fmt.Printf("BALIK DATA KOREKSI LAPORAN [%d/%s]\r", resultt, tots)
 
-					Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+					// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 					// ctx_upkoreksi := context.Background()
-					q_upkoreksi := fmt.Sprintf("SELECT COALESCE(SUM(rekair),0) AS rekair,COALESCE(SUM(stanlalu),0) AS stanlalu,COALESCE(SUM(stanskrg),0) AS stanskrg,COALESCE(SUM(pakai),0) AS pakai,COALESCE(SUM(biayapemakaian),0) AS biayapemakaian,COALESCE(SUM(administrasi),0) AS administrasi,COALESCE(SUM(pemeliharaan),0) AS pemeliharaan,COALESCE(SUM(retribusi),0) AS retribusi,COALESCE(SUM(meterai),0) AS meterai,COALESCE(SUM(pelayanan),0) AS pelayanan, COALESCE(SUM(administrasilain),0) AS administrasilain,COALESCE(SUM(pemeliharaanlain),0) AS pemeliharaanlain,COALESCE(SUM(retribusilain),0) AS retribusilain,COALESCE(SUM(pakai2),0) AS pakai2 FROM dumplaporanpiutang WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
-					rows, err = dbbilling.QueryContext(ctx, q_upkoreksi)
+					script = fmt.Sprintf("SELECT COALESCE(SUM(rekair),0) AS rekair,COALESCE(SUM(stanlalu),0) AS stanlalu,COALESCE(SUM(stanskrg),0) AS stanskrg,COALESCE(SUM(pakai),0) AS pakai,COALESCE(SUM(biayapemakaian),0) AS biayapemakaian,COALESCE(SUM(administrasi),0) AS administrasi,COALESCE(SUM(pemeliharaan),0) AS pemeliharaan,COALESCE(SUM(retribusi),0) AS retribusi,COALESCE(SUM(meterai),0) AS meterai,COALESCE(SUM(pelayanan),0) AS pelayanan, COALESCE(SUM(administrasilain),0) AS administrasilain,COALESCE(SUM(pemeliharaanlain),0) AS pemeliharaanlain,COALESCE(SUM(retribusilain),0) AS retribusilain,COALESCE(SUM(pakai2),0) AS pakai2 FROM dumplaporanpiutang WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE' GROUP BY CONCAT(periode,'.',nosamb)", kode)
+					rows, err = dbbilling.QueryContext(ctx, script)
 					if err != nil {
 						log.Fatalf("Gagal ambil data update koreksi : %v", err)
 					}
 
 					defer rows.Close()
 
-					var rekair, stanlalu, stankini, pakai, biayapemakaian, administrasi, pemeliharaan, retribusi, meterai, pelayanan, administrasilain, pemeliharaanlain, retribusilain, pakai2 float64
+					var rekair, stanlalu, stankini, pakai, biayapemakaian, administrasi, pemeliharaan, retribusi, meterai, pelayanan, administrasilain, pemeliharaanlain, retribusilain, total, pakai2 float64
 					// var cekisi string
 					// if rows.Next() {
 					// 	cekisi = "1"
@@ -3277,37 +3448,75 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 
 						err = rows.Scan(&rekair, &stanlalu, &stankini, &pakai, &biayapemakaian, &administrasi, &pemeliharaan, &retribusi, &meterai, &pelayanan, &administrasilain, &pemeliharaanlain, &retribusilain, &pakai2)
 
+						stanlalu = stanlalu - stanlalu_selisih
+						stankini = stankini - stankini_selisih
+						pakai = pakai - pakai_selisih
+						biayapemakaian = biayapemakaian - biayapemakaian_selisih
+						administrasi = administrasi - administrasi_selisih
+						pemeliharaan = pemeliharaan - pemeliharaan_selisih
+						retribusi = retribusi - retribusi_selisih
+						meterai = meterai - meterai_selisih
+						rekair = rekair - rekair_selisih
+						pelayanan = pelayanan - pelayanan_selisih
+						total = (rekair - rekair_selisih) + administrasilain + pemeliharaanlain + retribusilain + (pelayanan - pelayanan_selisih)
+
 						if err != nil {
 							log.Fatal("Data pakai2 kosong : ", err)
 						}
 
-						Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+						// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 						// ctx_delkor := context.Background()
-						q_delkor := fmt.Sprintf("DELETE FROM dumplaporanpiutang WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
-						rows, err = dbbilling.QueryContext(ctx, q_delkor)
+						script = fmt.Sprintf("DELETE FROM dumplaporanpiutang WHERE CONCAT(periode,'.',nosamb)='%s' AND user='SERVICE'", kode)
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal hapus data koreksi : %v", err)
 						}
 
 						defer rows.Close()
 						// fmt.Printf("BALIK DATA KOREKSI MANUAL [%d/%s] - 1 , %s\r", result, totaldata, kode)
-						Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+						// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 						// ctx_inskor := context.Background()
-						q_inskor := fmt.Sprint("REPLACE INTO dumplaporanpiutang VALUES (CONCAT('SERVICE','.','", kode, "'),'SERVICE','", kode, "','", periode, "','", nosamb, "','", bulan, "','", kodegol, "','", kodediameter, "','", koderayon, "',", stanlalu-stanlalu_selisih, ",", stankini-stankini_selisih, ",", pakai-pakai_selisih, ",0,0,0,0,", biayapemakaian-biayapemakaian_selisih, ",", administrasi-administrasi_selisih, ",", pemeliharaan-pemeliharaan_selisih, ",", retribusi-retribusi_selisih, ",", meterai-meterai_selisih, ",", rekair-rekair_selisih, ",0,", administrasilain, ",", pemeliharaanlain, ",", retribusilain, ",", pelayanan-pelayanan_selisih, ",", (rekair-rekair_selisih)+administrasilain+pemeliharaanlain+retribusilain+(pelayanan-pelayanan_selisih), ",", pakai2, ")")
-						rows, err = dbbilling.QueryContext(ctx, q_inskor)
+						script = fmt.Sprint("REPLACE INTO dumplaporanpiutang VALUES (CONCAT('SERVICE','.','", kode, "'),'SERVICE','", kode, "','", periode, "','", nosamb, "','", bulan, "','", kodegol, "','", kodediameter, "','", koderayon, "',", stanlalu, ",", stankini, ",", pakai, ",0,0,0,0,", biayapemakaian, ",", administrasi, ",", pemeliharaan, ",", retribusi, ",", meterai, ",", rekair, ",0,", administrasilain, ",", pemeliharaanlain, ",", retribusilain, ",", pelayanan, ",", total, ",", pakai2, ")")
+						rows, err = dbbilling.QueryContext(ctx, script)
 						if err != nil {
 							log.Fatalf("Gagal insert data koreksi : %v", err)
 						}
 
 						defer rows.Close()
+
+						rows, err = dbbilling.Query("SELECT id FROM information_schema.processlist WHERE command = 'Sleep'")
+						if err != nil {
+							log.Fatal(err)
+						}
+						defer rows.Close()
+
+						// Mengakhiri setiap koneksi yang sedang sleep
+						for rows.Next() {
+							var id int
+							if err := rows.Scan(&id); err != nil {
+								log.Fatal(err)
+							}
+
+							_, err = dbbilling.Exec(fmt.Sprintf("KILL %d", id))
+							if err != nil {
+								log.Printf("Failed to kill connection ID %d: %v\n", id, err)
+							} else {
+								fmt.Print("")
+							}
+						}
+
+						// Memastikan tidak ada error saat iterasi
+						if err = rows.Err(); err != nil {
+							log.Fatal(err)
+						}
 					}
 					// }
 
 					// fmt.Printf("BALIK DATA KOREKSI MANUAL [%d/%s] - 2 , %s\r", result, totaldata, kode)
 				}
-				// }
+
 				fmt.Println("BALIK DATA KOREKSI LAPORAN [DONE]                              ")
 
 				// q_sumrek = fmt.Sprint("SELECT SUM(rekair_baru-rekair_lama) FROM ba_koreksi_rekening WHERE DATE_FORMAT(tanggalba,'%Y%m')>'", data.Kode, "' AND nomorba LIKE '%DRD-KOREKSI%' AND flaghapus='0' AND periode<='", data.Kode, "'")
@@ -3326,50 +3535,91 @@ func CekPiutang(DBUser, DBPass, DBName, DBHost, DBPort, IdPDAM, pesan string) st
 				// }
 				// fmt.Println(jumrekair)
 
-				// q_sumrek = fmt.Sprintf("SELECT SUM(rekair) FROM dumplaporanpiutang WHERE user='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE tglhapussecaraakuntansi<='%s')", data.Tglkini)
-				// rows, err = dbbilling.QueryContext(ctx, q_sumrek)
-				// if err != nil {
-				// 	log.Fatal("Gagal ambil data total : ", err)
-				// }
-				// defer rows.Close()
+				script = fmt.Sprintf("SELECT SUM(rekair) FROM dumplaporanpiutang WHERE user='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE tglhapussecaraakuntansi<='%s')", data.Tglkini)
+				rows, err = dbbilling.QueryContext(ctx, script)
+				if err != nil {
+					log.Fatal("Gagal ambil data total : ", err)
+				}
+				defer rows.Close()
 
-				// if rows.Next() {
-				// 	err := rows.Scan(&jumrekair)
+				if rows.Next() {
+					err := rows.Scan(&jumrekair)
 
-				// 	if err != nil {
-				// 		log.Fatal("Data total kosong : ", err)
-				// 	}
-				// }
-				// fmt.Println(jumrekair)
+					if err != nil {
+						log.Fatal("Data total kosong : ", err)
+					}
+				}
+				fmt.Println(jumrekair)
 
-				fmt.Print("CEK & INSERT SELISIH ", strings.ToUpper(data.bulan))
+				fmt.Print("- CEK & INSERT SELISIH ", strings.ToUpper(data.bulan))
 				var result = ""
 
 				pesan = pesan + "\nBULAN " + strings.ToUpper(data.bulan) + "\n\n"
 
-				Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+				// Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
 
 				// ctx_upkoreksi := context.Background()
-				q_banding := fmt.Sprintf("SELECT * FROM (SELECT kode,SUM(rekair) AS rek FROM dumplaporanpiutang WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') GROUP BY kode) a,(SELECT kode,SUM(rekair) AS rek FROM dumplaporanpiutang_service WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') GROUP BY kode) b WHERE a.kode=b.kode AND a.rek<>b.rek", data.Tglkini, data.Tglkini)
-				rows, err = dbbilling.QueryContext(ctx, q_banding)
-				if err != nil {
-					log.Fatalf("Gagal ambil data update koreksi : %v", err)
+				script = fmt.Sprintf("SELECT * FROM (SELECT kodegol,SUM(rekair) AS rek FROM dumplaporanpiutang WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') GROUP BY kodegol) a,(SELECT kodegol,SUM(rekair) AS rek FROM dumplaporanpiutang_manual WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') GROUP BY kodegol) b WHERE a.kodegol=b.kodegol AND a.rek<>b.rek", data.Tglkini, data.Tglkini)
+				banding1, ebanding1 := dbbilling.QueryContext(ctx, script)
+				if ebanding1 != nil {
+					log.Fatalf("Gagal ambil data update koreksi : %v", ebanding1)
 				}
 
-				defer rows.Close()
+				defer banding1.Close()
 
-				for rows.Next() {
-					var kode, kodem string
-					var rekair, rekairm float64
+				for banding1.Next() {
+					var kodegol, kodegolm string
+					var rekgol, rekgolm float64
 
-					e_banding := rows.Scan(&kode, &rekair, &kodem, &rekairm)
+					ebanding1 = banding1.Scan(&kodegol, &rekgol, &kodegolm, &rekgolm)
 
-					if e_banding != nil {
-						log.Fatal("Data banding piutang kosong : ", e_banding)
+					if ebanding1 != nil {
+						log.Fatal("Data banding piutang kosong : ", ebanding1)
 					}
 
-					result = result + fmt.Sprintf("Kode : %s | Rekair Manual : %.2f | Rekair Laporan : %.2f", kode, rekairm, rekair)
-					pesan = pesan + fmt.Sprintf("Kode : %s | Rekair Manual : %.2f | Rekair Laporan : %.2f", kode, rekairm, rekair)
+					if (kodegol == kodegolm) && (rekgol != rekgolm) {
+						script = fmt.Sprintf("SELECT * FROM (SELECT koderayon,SUM(rekair) AS rek FROM dumplaporanpiutang WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') AND kodegol='%s' GROUP BY koderayon) a,(SELECT koderayon,SUM(rekair) AS rek FROM dumplaporanpiutang_manual WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') AND kodegol='%s' GROUP BY koderayon) b WHERE a.koderayon=b.koderayon AND a.rek<>b.rek", data.Tglkini, kodegol, data.Tglkini, kodegol)
+						banding2, ebanding2 := dbbilling.QueryContext(ctx, script)
+						if ebanding2 != nil {
+							log.Fatalf("Gagal ambil data update koreksi : %v", ebanding2)
+						}
+						defer banding2.Close()
+
+						for banding2.Next() {
+							var koderayon, koderayonm string
+							var rekray, rekraym float64
+
+							ebanding2 = banding2.Scan(&koderayon, &rekray, &koderayonm, &rekraym)
+							if ebanding2 != nil {
+								log.Fatal("Data banding piutang kosong : ", ebanding2)
+							}
+
+							if (koderayon == koderayonm) && (rekray != rekraym) {
+								script = fmt.Sprintf("SELECT * FROM (SELECT kode,SUM(rekair) AS rek FROM dumplaporanpiutang WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') AND kodegol='%s' AND koderayon='%s' GROUP BY kode) a,(SELECT kode,SUM(rekair) AS rek FROM dumplaporanpiutang_manual WHERE USER='SERVICE' AND kode NOT IN (SELECT kode FROM drdhapussecaraakuntansi WHERE DATE(tglhapussecaraakuntansi)<='%s') AND kodegol='%s' AND koderayon='%s' GROUP BY kode) b WHERE a.kode=b.kode AND a.rek<>b.rek", data.Tglkini, kodegol, koderayon, data.Tglkini, kodegol, koderayon)
+								banding3, ebanding3 := dbbilling.QueryContext(ctx, script)
+								if ebanding3 != nil {
+									log.Fatalf("Gagal ambil data update koreksi : %v", ebanding3)
+								}
+
+								defer banding3.Close()
+
+								for banding3.Next() {
+									var kode, kodem string
+									var rekair, rekairm float64
+
+									ebanding3 = banding3.Scan(&kode, &rekair, &kodem, &rekairm)
+
+									if ebanding3 != nil {
+										log.Fatal("Data banding piutang kosong : ", ebanding3)
+									}
+
+									result = result + fmt.Sprintf("Kode : %s | Rekair Manual : %.2f | Rekair Laporan : %.2f", kode, rekairm, rekair)
+									pesan = pesan + fmt.Sprintf("Kode : %s | Rekair Manual : %.2f | Rekair Laporan : %.2f", kode, rekairm, rekair)
+								}
+							}
+						}
+
+					}
 				}
 				// CEK PIUTANG
 				// for _, datapiut := range piutang {
@@ -3431,29 +3681,18 @@ func Callback_ConBill(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill string) 
 		log.Fatalf("Tidak dapat terhubung ke database: %v", err)
 	}
 
-	// for {
-	// 	dbbilling := connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
-	// 	defer dbbilling.Close()
+	dbbilling = connmaster.ConnBilling(User_bill, Pass_bill, DB_bill, Ip_bill, Port_bill)
+	defer dbbilling.Close()
 
-	// 	// Mengecek koneksi ke database
-	// 	err := dbbilling.Ping()
-	// 	if err != nil {
-	// 		fmt.Println("Tidak dapat terhubung ke database:", err)
-	// 		// pesan = "Tidak dapat terhubung ke database:" + err.Error()
-	// 		// telebot.TeleBot(pesan)
-	// 		goto Sleeps
-	// 	} else {
+	err = dbbilling.Ping()
+	if err != nil {
+		log.Fatalf("Tidak dapat terhubung ke database: %v", err)
+	}
 
-	// 		break
-
-	// 	}
-	// Sleeps:
-	// 	time.Sleep(1 * time.Second)
-	// }
 	return nil
 }
 
-func getPelangganBill(dbbill *sql.DB) ([]NosambBill, error) {
+func getPelangganBill(dbbill *sqlx.DB) ([]NosambBill, error) {
 	ctx_pelbill := context.Background()
 
 	pelanggan_bill, e_pelbill := dbbill.QueryContext(ctx_pelbill, "SELECT nosamb FROM pelanggan WHERE flaghapus=0 ORDER BY `status`,nosamb")
@@ -3481,7 +3720,7 @@ func getPelangganBill(dbbill *sql.DB) ([]NosambBill, error) {
 	return nosambBill, nil
 }
 
-func getPelangganLoket(dbloket *sql.DB, nosambBill []NosambBill, pesan string) (string, error) {
+func getPelangganLoket(dbloket *sqlx.DB, nosambBill []NosambBill, pesan string) (string, error) {
 	// Simulasi penggunaan data dari SELECT pertama untuk SELECT kedua
 	// Di sini, kita hanya menggabungkan ID dari hasil SELECT pertama
 
